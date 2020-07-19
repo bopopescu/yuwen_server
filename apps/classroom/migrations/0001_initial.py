@@ -20,8 +20,8 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=127, unique=True, verbose_name='名称')),
                 ('grade', models.PositiveSmallIntegerField(choices=[(0, '1年级'), (1, '2年级'), (0, '3年级'), (0, '4年级'), (0, '5年级'), (0, '6年级')], default=0, verbose_name='年级')),
                 ('create_date', models.DateTimeField(auto_now_add=True, verbose_name='创建时间')),
-                ('master_teacher', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='master_teacher', to='role.Teacher', verbose_name='班主任')),
-                ('slave_teacher', models.ManyToManyField(related_name='slave_teacher', to='role.Teacher', verbose_name='辅助老师')),
+                ('main_teacher', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='main_teacher', to='role.Teacher', verbose_name='班主任')),
+                ('subordinate_teacher', models.ManyToManyField(related_name='subordinate_teacher', to='role.Teacher', verbose_name='辅助老师')),
                 ('students', models.ManyToManyField(to='role.Student', verbose_name='学生')),
             ],
             options={

@@ -13,13 +13,13 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterField(
             model_name='classroom',
-            name='master_teacher',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='master_teacher', to='institution.InstTeacher', verbose_name='班主任'),
+            name='main_teacher',
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='main_teacher', to='institution.InstTeacher', verbose_name='班主任'),
         ),
         migrations.AlterField(
             model_name='classroom',
-            name='slave_teacher',
-            field=models.ManyToManyField(related_name='slave_teacher', to='institution.InstTeacher', verbose_name='辅助老师'),
+            name='subordinate_teacher',
+            field=models.ManyToManyField(related_name='subordinate_teacher', to='institution.InstTeacher', verbose_name='辅助老师'),
         ),
         migrations.AlterField(
             model_name='classroom',

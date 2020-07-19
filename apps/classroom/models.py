@@ -21,8 +21,8 @@ class Classroom(models.Model):
     institution = models.ForeignKey(Institution, verbose_name="机构", on_delete=models.CASCADE, null=True)
 
     packages = models.ManyToManyField(Package, verbose_name="所上课程")
-    master_teacher = models.ForeignKey(InstTeacher, verbose_name="班主任", on_delete=models.SET_NULL, related_name="master_teacher", blank=True, null=True)
-    slave_teacher = models.ManyToManyField(InstTeacher, verbose_name="辅助老师", related_name="slave_teacher")
+    main_teacher = models.ForeignKey(InstTeacher, verbose_name="班主任", on_delete=models.SET_NULL, related_name="main_teacher", blank=True, null=True)
+    subordinate_teacher = models.ManyToManyField(InstTeacher, verbose_name="辅助老师", related_name="subordinate_teacher")
 
     students = models.ManyToManyField(InstStudent, verbose_name="学生")
 
